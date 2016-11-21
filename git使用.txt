@@ -1,4 +1,4 @@
-1.怎样把git和github结合起来，把本地文件提交到github上托管？
+1. 怎样把git和github结合起来，把本地文件提交到github上托管？
 	-- 利用git提交本地文件到github：步骤
 		** 1.git init(会生成一个.git文件夹)
 		** 2.git add README.md
@@ -6,4 +6,35 @@
 		** 4.git remote add origin https://github.com/BrightSt/MyNote.git
 		** 5.git push -u origin master (接下来会提示输入用户名密码，输入即可)
 	
-2.
+2. 查看所有配置
+		** 1.1 查看所有配置 git config --list 
+		** 1.2 查看某个配置 git config user.name
+		
+3. git init 
+		初始化git仓库
+		
+4. 克隆项目
+		1. git clone <repo> 克隆到当前文件夹
+		2. git clone <repo> <directory> 克隆到制定文件夹
+		
+5. git status  
+		查看项目当前状态
+
+6.使用 git add 命令将想要快照的内容写入缓存区， 而执行 git commit 将缓存区内容添加到仓库中。
+
+7.分支相关
+		7.1 git branch (branchname) 创建分支	
+		7.2 git checkout (branchname) 切换分支
+		7.3 git merge  合并分支
+		7.4 git branch 列出分支
+		7.5 git branch -d (branchname) 删除分支
+		
+8.查看提交日志：
+	git log
+	
+9. 添加一个标签：
+	 git tag -a v1.0 
+	 
+10.git remote add [shortname] [url]  添加一个远程仓库
+
+11. git pull 更新
