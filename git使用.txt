@@ -1,6 +1,9 @@
 1.怎样把git和github结合起来，把本地文件提交到github上托管？
-	** 1.git init(会生成一个.git文件夹)
-	** 2.git add README.md
-	** 3.git commit -m 'first commit'
-	** 4.git remote add origin https://github.com/BrightSt/MyNote.git
-	** 5.git push -u origin master (接下来会提示输入用户名密码，输入即可)
+	-- 利用git提交本地文件到github：步骤
+		** 1.git init(会生成一个.git文件夹)
+		** 2.git add README.md
+		** 3.git commit -m 'first commit'
+		** 4.git remote add origin https://github.com/BrightSt/MyNote.git
+		** 5.git push -u origin master (接下来会提示输入用户名密码，输入即可)
+	
+2.
