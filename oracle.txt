@@ -1,0 +1,11 @@
+**********************oracle*********************笔记
+++++++1. oracle分页：
+			SELECT * FROM 
+			(
+				SELECT A.*, ROWNUM RN 
+				FROM (SELECT * FROM TABLE_NAME) A 
+				WHERE ROWNUM <= 40
+			)
+			WHERE RN >= 21
+			
+		不能够直接 rownum<=40 and >=21 这样写，至于原因以后再总结。
