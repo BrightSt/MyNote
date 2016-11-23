@@ -9,3 +9,9 @@
 			WHERE RN >= 21
 			
 		不能够直接 rownum<=40 and >=21 这样写，至于原因以后再总结。
+		
+++++++2. select对某个字段结果进行判断：decode
+			例如：
+				decode(status,1,'Y','N')
+				decode(trim(t.invite_num),'小移','小移',(substr(t.invite_num, 1, 3) || '****' || substr(t.invite_num, -3, 3))) as invite_num
+			
