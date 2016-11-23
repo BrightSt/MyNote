@@ -1,0 +1,66 @@
+1、httpclient
+	package com.httpclient.test;
+
+import java.io.IOException;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.ParseException;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;  
+
+public class Test {
+
+	public static void main(String[] args) {
+		CloseableHttpClient httpclient = HttpClients.createDefault();  
+		long timestamp = System.currentTimeMillis();
+        try {  
+            // 创建httpget.    http://10.32.111.51:8080/2014/index.html
+        	StringBuffer ab = new StringBuffer();
+        	//ab.append("http://127.0.0.1:8080/QRcode.do?method=qrLogin");
+        	ab.append("http://10.32.111.51:8080/2014/QRcode.do?method=qrLogin");
+        	ab.append("&uuid=1296a92-936e-4da2-865b-fd06ed15fe06");//24256f44-83b7-4c0b-a027-2a135617daf2
+        	ab.append("&token=122ABFEC33564280A26D1B5B1FB4E795@js.ac.10086.cn");
+        	ab.append("&type=1");
+        	ab.append("&operateTime="+timestamp);
+            HttpGet httpget = new HttpGet(ab+"");  
+//            HttpGet httpget = new HttpGet("http://10.32.111.51:8080/2014/QRcode.do?method=getToken&token=1111111");  
+            System.out.println("executing request " + httpget.getURI());  
+            // 执行get请求.    
+            CloseableHttpResponse response = httpclient.execute(httpget);  
+            try {  
+                // 获取响应实体    
+                HttpEntity entity = response.getEntity();  
+                System.out.println("--------------------------------------");  
+                // 打印响应状态    
+                System.out.println(response.getStatusLine());  
+                if (entity != null) {  
+                    // 打印响应内容长度    
+                    System.out.println("Response content length: " + entity.getContentLength());  
+                    // 打印响应内容    
+                    System.out.println("Response content: " + EntityUtils.toString(entity));  
+                }  
+                System.out.println("------------------------------------");  
+            } finally {  
+                response.close();  
+            }  
+        } catch (ClientProtocolException e) {  
+            e.printStackTrace();  
+        } catch (ParseException e) {  
+            e.printStackTrace();  
+        } catch (IOException e) {  
+            e.printStackTrace();  
+        } finally {  
+            // 关闭连接,释放资源    
+            try {  
+                httpclient.close();  
+            } catch (IOException e) {  
+                e.printStackTrace();  
+            }  
+        }  
+	}
+
+}
