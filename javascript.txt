@@ -1,0 +1,6 @@
+1.
+	-- setTimeout() 只执行 code 一次。如果要多次调用，请使用 setInterval() 或者让 code 自身再次调用 setTimeout()。
+	
+2. 
+	-- 浏览器兼容问题
+		在js调试程序的时候，如果用到了console，在提交代码前应删除掉这些console debugger 等关键字   （个别浏览器不支持，会报错）

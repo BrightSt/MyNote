@@ -1,0 +1,13 @@
+
+1.cleanup失败解决方法：
+	1.	下载sqlite3 放到.svn目录下
+	2.	cmd启动sqlite  例如：sqlite3在此目录下：E:\xwtecWorkSpace\js_obsh_service\.svn
+		-->E:
+		-->cd E:\xwtecWorkSpace\js_obsh_service\.svn
+		-->sqlite3 wc.db
+		--sqlite>delete from wc_lock;
+		--sqlite>delete from work_queue;
+	3.	删除这两个表，重新cleanup
+	
+	4.显示所有表  .table
+	

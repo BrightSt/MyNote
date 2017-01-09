@@ -1,0 +1,11 @@
+****************************jquery**********************
+
+1.判断该标签是否含某个class
+	1.$(#divid).hasClass(class);
+	2.$(#divid).is(class);
+	
+2.标签添加class文件
+	$(divid).addClass(class);
+	
+3.标签删除某个style属性
+	$('#popup-text-box').parent().css({height:''});
