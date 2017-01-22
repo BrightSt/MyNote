@@ -75,3 +75,23 @@
 				instance = new DESUtil(key);
 				return instance;
 			}
+			
+			
+			
+++++++++3.java精度问题
+					public static void main(String args[]){
+						   Float xx = 2.0f;
+						   Float yy = 1.8f;
+						   Float tt = xx - yy;
+						   System.out.println("tttttt-----" + tt);
+						   
+						   double aa = 2.0;
+						   double bb = 3.03;
+						   double cc = bb-aa;
+						   if(bb-aa == 1.03){
+							   
+						   }
+						   System.out.println(cc);
+						   
+						   //tttttt-----0.20000005   1.0299999999999998
+					}

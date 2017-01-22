@@ -9,3 +9,6 @@
 	
 3.标签删除某个style属性
 	$('#popup-text-box').parent().css({height:''});
+	
+4.根据属性值获取对象
+	$('#bItemNewPkg a[flag='22222']')

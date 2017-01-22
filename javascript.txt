@@ -4,3 +4,10 @@
 2. 
 	-- 浏览器兼容问题
 		在js调试程序的时候，如果用到了console，在提交代码前应删除掉这些console debugger 等关键字   （个别浏览器不支持，会报错）
+		
+3.  -- // 筛选出url中给定参数的值 add by dms.id
+	function getUrlParam(name) {
+		 var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+		 var r = window.location.search.substr(1).match(reg); //匹配目标参数
+		 if (r != null) return unescape(r[2]); return null; //返回参数值
+	}
