@@ -1,21 +1,21 @@
-**********************oracle*********************±Ê¼Ç
-++++++1. oracle·ÖÒ³£º
-			SELECT * FROM 
+**********************oracle*********************ç¬”è®°
+++++++1. oracleåˆ†é¡µï¼š
+			SELECT * FROM
 			(
-				SELECT A.*, ROWNUM RN 
-				FROM (SELECT * FROM TABLE_NAME) A 
+				SELECT A.*, ROWNUM RN
+				FROM (SELECT * FROM TABLE_NAME) A
 				WHERE ROWNUM <= 40
 			)
 			WHERE RN >= 21
-			
-		²»ÄÜ¹»Ö±½Ó rownum<=40 and >=21 ÕâÑùĞ´£¬ÖÁÓÚÔ­ÒòÒÔºóÔÙ×Ü½á¡£
-		
-++++++2. select¶ÔÄ³¸ö×Ö¶Î½á¹û½øĞĞÅĞ¶Ï£ºdecode
-			ÀıÈç£º
+
+		ä¸èƒ½å¤Ÿç›´æ¥ rownum<=40 and >=21 è¿™æ ·å†™ï¼Œè‡³äºåŸå› ä»¥åå†æ€»ç»“ã€‚
+
+++++++2. selectå¯¹æŸä¸ªå­—æ®µç»“æœè¿›è¡Œåˆ¤æ–­ï¼šdecode
+			ä¾‹å¦‚ï¼š
 				decode(status,1,'Y','N')
-				decode(trim(t.invite_num),'Ğ¡ÒÆ','Ğ¡ÒÆ',(substr(t.invite_num, 1, 3) || '****' || substr(t.invite_num, -3, 3))) as invite_num
-			
-			
-	
+				decode(trim(t.invite_num),'å°ç§»','å°ç§»',(substr(t.invite_num, 1, 3) || '****' || substr(t.invite_num, -3, 3))) as invite_num
+
+
+
 SELECT * FROM t_busi_info AS OF TIMESTAMP
            TO_TIMESTAMP('2017-01-13 11:10:17', 'YYYY-MM-DD HH:MI:SS') 

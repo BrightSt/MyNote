@@ -1,13 +1,12 @@
 
-1.cleanupÊ§°Ü½â¾ö·½·¨£º
-	1.	ÏÂÔØsqlite3 ·Åµ½.svnÄ¿Â¼ÏÂ
-	2.	cmdÆô¶¯sqlite  ÀıÈç£ºsqlite3ÔÚ´ËÄ¿Â¼ÏÂ£ºE:\xwtecWorkSpace\js_obsh_service\.svn
+1.cleanupå¤±è´¥è§£å†³æ–¹æ³•ï¼š
+	1.	ä¸‹è½½sqlite3 æ”¾åˆ°.svnç›®å½•ä¸‹
+	2.	cmdå¯åŠ¨sqlite  ä¾‹å¦‚ï¼šsqlite3åœ¨æ­¤ç›®å½•ä¸‹ï¼šE:\xwtecWorkSpace\js_obsh_service\.svn
 		-->E:
 		-->cd E:\xwtecWorkSpace\js_obsh_service\.svn
 		-->sqlite3 wc.db
 		--sqlite>delete from wc_lock;
 		--sqlite>delete from work_queue;
-	3.	É¾³ıÕâÁ½¸ö±í£¬ÖØĞÂcleanup
-	
-	4.ÏÔÊ¾ËùÓĞ±í  .table
-	
+	3.	åˆ é™¤è¿™ä¸¤ä¸ªè¡¨ï¼Œé‡æ–°cleanup
+
+	4.æ˜¾ç¤ºæ‰€æœ‰è¡¨  .table

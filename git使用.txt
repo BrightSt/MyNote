@@ -1,40 +1,40 @@
-1. ÔõÑù°ÑgitºÍgithub½áºÏÆğÀ´£¬°Ñ±¾µØÎÄ¼şÌá½»µ½githubÉÏÍĞ¹Ü£¿
-	-- ÀûÓÃgitÌá½»±¾µØÎÄ¼şµ½github£º²½Öè
-		** 1.git init(»áÉú³ÉÒ»¸ö.gitÎÄ¼ş¼Ğ){Ö´ĞĞÒ»´Î£¬³õÊ¼»¯µÄÊ±ºò}
-		** 2.git add README.md  {°ÑÎÄ¼şÌí¼Óµ½Ë÷Òı¿â} È«²¿£ºgit add .
+1. æ€æ ·æŠŠgitå’Œgithubç»“åˆèµ·æ¥ï¼ŒæŠŠæœ¬åœ°æ–‡ä»¶æäº¤åˆ°githubä¸Šæ‰˜ç®¡ï¼Ÿ
+	-- åˆ©ç”¨gitæäº¤æœ¬åœ°æ–‡ä»¶åˆ°githubï¼šæ­¥éª¤
+		** 1.git init(ä¼šç”Ÿæˆä¸€ä¸ª.gitæ–‡ä»¶å¤¹){æ‰§è¡Œä¸€æ¬¡ï¼Œåˆå§‹åŒ–çš„æ—¶å€™}
+		** 2.git add README.md  {æŠŠæ–‡ä»¶æ·»åŠ åˆ°ç´¢å¼•åº“} å…¨éƒ¨ï¼šgit add .
 		** 3.git commit -m 'first commit'
-		** 4.git remote add origin https://github.com/BrightSt/MyNote.git{´´½¨Ò»¸öÔ¶³Ì²Ö¿â£¬Èç¹ûÓĞÁË¾Í²»ĞèÒªÖ´ĞĞÁË}
-		** 5.git push -u origin master (½ÓÏÂÀ´»áÌáÊ¾ÊäÈëÓÃ»§ÃûÃÜÂë£¬ÊäÈë¼´¿É)
-	
-2. ²é¿´ËùÓĞÅäÖÃ
-		** 1.1 ²é¿´ËùÓĞÅäÖÃ git config --list 
-		** 1.2 ²é¿´Ä³¸öÅäÖÃ git config user.name
-		
-3. git init 
-		³õÊ¼»¯git²Ö¿â
-		
-4. ¿ËÂ¡ÏîÄ¿
-		1. git clone <repo> ¿ËÂ¡µ½µ±Ç°ÎÄ¼ş¼Ğ
-		2. git clone <repo> <directory> ¿ËÂ¡µ½ÖÆ¶¨ÎÄ¼ş¼Ğ
-		
-5. git status  
-		²é¿´ÏîÄ¿µ±Ç°×´Ì¬
+		** 4.git remote add origin https://github.com/BrightSt/MyNote.git{åˆ›å»ºä¸€ä¸ªè¿œç¨‹ä»“åº“ï¼Œå¦‚æœæœ‰äº†å°±ä¸éœ€è¦æ‰§è¡Œäº†}
+		** 5.git push -u origin master (æ¥ä¸‹æ¥ä¼šæç¤ºè¾“å…¥ç”¨æˆ·åå¯†ç ï¼Œè¾“å…¥å³å¯)
 
-6.Ê¹ÓÃ git add ÃüÁî½«ÏëÒª¿ìÕÕµÄÄÚÈİĞ´Èë»º´æÇø£¬ ¶øÖ´ĞĞ git commit ½«»º´æÇøÄÚÈİÌí¼Óµ½²Ö¿âÖĞ¡£
+2. æŸ¥çœ‹æ‰€æœ‰é…ç½®
+		** 1.1 æŸ¥çœ‹æ‰€æœ‰é…ç½® git config --list
+		** 1.2 æŸ¥çœ‹æŸä¸ªé…ç½® git config user.name
 
-7.·ÖÖ§Ïà¹Ø
-		7.1 git branch (branchname) ´´½¨·ÖÖ§	
-		7.2 git checkout (branchname) ÇĞ»»·ÖÖ§
-		7.3 git merge  ºÏ²¢·ÖÖ§
-		7.4 git branch ÁĞ³ö·ÖÖ§
-		7.5 git branch -d (branchname) É¾³ı·ÖÖ§
-		
-8.²é¿´Ìá½»ÈÕÖ¾£º
+3. git init
+		åˆå§‹åŒ–gitä»“åº“
+
+4. å…‹éš†é¡¹ç›®
+		1. git clone <repo> å…‹éš†åˆ°å½“å‰æ–‡ä»¶å¤¹
+		2. git clone <repo> <directory> å…‹éš†åˆ°åˆ¶å®šæ–‡ä»¶å¤¹
+
+5. git status
+		æŸ¥çœ‹é¡¹ç›®å½“å‰çŠ¶æ€
+
+6.ä½¿ç”¨ git add å‘½ä»¤å°†æƒ³è¦å¿«ç…§çš„å†…å®¹å†™å…¥ç¼“å­˜åŒºï¼Œ è€Œæ‰§è¡Œ git commit å°†ç¼“å­˜åŒºå†…å®¹æ·»åŠ åˆ°ä»“åº“ä¸­ã€‚
+
+7.åˆ†æ”¯ç›¸å…³
+		7.1 git branch (branchname) åˆ›å»ºåˆ†æ”¯
+		7.2 git checkout (branchname) åˆ‡æ¢åˆ†æ”¯
+		7.3 git merge  åˆå¹¶åˆ†æ”¯
+		7.4 git branch åˆ—å‡ºåˆ†æ”¯
+		7.5 git branch -d (branchname) åˆ é™¤åˆ†æ”¯
+
+8.æŸ¥çœ‹æäº¤æ—¥å¿—ï¼š
 	git log
-	
-9. Ìí¼ÓÒ»¸ö±êÇ©£º
-	 git tag -a v1.0 
-	 
-10.git remote add [shortname] [url]  Ìí¼ÓÒ»¸öÔ¶³Ì²Ö¿â
 
-11. git pull ¸üĞÂ
+9. æ·»åŠ ä¸€ä¸ªæ ‡ç­¾ï¼š
+	 git tag -a v1.0
+
+10.git remote add [shortname] [url]  æ·»åŠ ä¸€ä¸ªè¿œç¨‹ä»“åº“
+
+11. git pull æ›´æ–°

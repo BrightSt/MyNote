@@ -56,4 +56,6 @@ AbstractStringBuilder中采用一个char数组来保存需要append的字符串�
 http://www.sczyh30.com/posts/Java/java-reflection-1/</br>
 需要jvm作为支撑
 
-### 8.test地方
+
+### 8.CAS 单点登录
+参考文章：http://blog.csdn.net/lifetragedy

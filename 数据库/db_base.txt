@@ -1,0 +1,216 @@
+
+
+
+-- ********************************************************************基础数据表********************************************
+-- 企业信息
+DROP TABLE IF EXISTS `enterprise`;
+create TABLE `enterprise`(
+	`id` INT(11) NOT NULL auto_increment COMMENT '表主键',
+	`number` VARCHAR(50) DEFAULT NULL COMMENT '企业编号',
+	`name` VARCHAR(200) DEFAULT NULL COMMENT '企业名称',
+	`type` int(1) DEFAULT 0 COMMENT '企业类型 0：企业 1：环保局',
+	`responsible_person` varchar(50) default NULL COMMENT '负责人',
+	`legal_person` VARCHAR(50) DEFAULT NULL COMMENT '法人',
+	`phone` VARCHAR(50) DEFAULT NULL COMMENT '企业电话',
+	`email` VARCHAR(50) DEFAULT NULL COMMENT '邮箱',
+	`licence` VARCHAR(50) DEFAULT NULL COMMENT '许可证号',
+	`industry` INT(11) DEFAULT null COMMENT '行业别',
+	`address` VARCHAR(20) DEFAULT null COMMENT '地址',
+	`lat` varchar(100) default NULL COMMENT '经度',
+  `lng` varchar(100) default NULL COMMENT '纬度',
+	`create_time` datetime DEFAULT null COMMENT '创建时间',
+	`update_time` datetime DEFAULT null COMMENT '更新时间',
+	`create_user` VARCHAR(50) DEFAULT null COMMENT '创建人',
+	`update_user` VARCHAR(50) DEFAULT null COMMENT '更新人',
+  `delflag` int(11) DEFAULT NULL COMMENT '是否删除 0正常使用 1删除',
+	PRIMARY KEY (`id`)
+) ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT '企业信息';
+
+-- 用户信息
+DROP TABLE IF EXISTS `user_info`;
+CREATE TABLE `user_info`(
+	`id` int(11) NOT NULL auto_increment COMMENT '主键',
+  `username` varchar(50) NOT NULL COMMENT '用户名',
+  `password` varchar(50) NOT NULL COMMENT '用户密码',
+  `status` varchar(50) default NULL COMMENT '用户状态',
+	`enterprise_id` INT(11) DEFAULT NULL COMMENT '企业主键',
+  `name` varchar(50) default NULL COMMENT '姓名',
+  `gender` varchar(10) default NULL COMMENT '性别',
+  `birth` varchar(50) default NULL COMMENT '生日',
+  `empy` varchar(50) default NULL COMMENT '员工号',
+  `email` varchar(50) default NULL COMMENT '邮件地址',
+  `mobile` varchar(50) default NULL COMMENT '手机号码',
+  `createid` decimal(10,0) default NULL COMMENT '创建人Id',
+  `createdatatime` datetime default NULL COMMENT '创建时间',
+  `delflag` varchar(10) default NULL COMMENT '删除标志位 0:正常 ，1：删除',
+  `companycode` varchar(50) default NULL,
+  `idcard` varchar(50) default NULL,
+  `imgurl` varchar(200) default NULL COMMENT '图片地址',
+  `departmen` int(11) default NULL,
+  `dicode` varchar(50) default NULL,
+  `signmenu` varchar(50) default '0',
+  PRIMARY KEY  (`id`)
+)ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT '用户信息';
+
+-- 角色表
+DROP TABLE IF EXISTS `role_info`;
+CREATE TABLE `role_info`(
+	`id` int(11) NOT NULL AUTO_INCREMENT COMMENT '表主键,自增长',
+  `roleid` varchar(50) DEFAULT NULL COMMENT '角色编号',
+  `name` varchar(50) DEFAULT NULL COMMENT '角色名称',
+  `remark` varchar(500) DEFAULT NULL COMMENT '备注',
+  `delflag` varchar(50) DEFAULT NULL COMMENT '删除标志位 0：正常 1：删除',
+  `createid` decimal(10,0) DEFAULT NULL COMMENT '创建人Id',
+  `createdatatime` datetime DEFAULT NULL COMMENT '创建时间',
+  `signmenu` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT '角色表';
+
+-- 菜单表
+DROP TABLE IF EXISTS `menu_info`;
+CREATE TABLE `menu_info`(
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '表主键,自增长',
+  `menu_name` varchar(50) DEFAULT NULL COMMENT '菜单名称',
+  `url` varchar(200) DEFAULT NULL COMMENT '菜单路径',
+  `remark` varchar(500) DEFAULT NULL COMMENT '备注',
+  `type` decimal(10,0) DEFAULT NULL COMMENT '菜单类型 主菜单为0；子菜单为1',
+  `menu_index` decimal(10,0) DEFAULT NULL COMMENT '菜单显示先后顺序',
+  `detial_index` decimal(10,0) DEFAULT NULL COMMENT '子菜单对应的主菜单UM_ID',
+  `delflag` varchar(50) DEFAULT NULL COMMENT '删除标志位 0：正常 1：删除',
+  `createid` decimal(10,0) DEFAULT NULL COMMENT '创建人Id',
+  `createdatatime` datetime DEFAULT NULL COMMENT '创建时间',
+  `signmenu` varchar(50) DEFAULT NULL,
+  `image` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+)ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT '菜单表';
+
+-- 用户角色关系表
+DROP TABLE IF EXISTS `user_role`;
+CREATE TABLE `user_role`(
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '表主键,自增长',
+  `roleid` int(11) DEFAULT NULL COMMENT '角色编号',
+  `userid` int(11) DEFAULT NULL COMMENT '用户编号',
+  `createid` decimal(10,0) DEFAULT NULL COMMENT '创建人Id',
+  `createdatatime` datetime DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`id`)
+)ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT '用户角色表';
+ 
+-- 角色菜单关系表
+DROP TABLE IF EXISTS `role_menu`;
+CREATE TABLE `role_menu`(
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `roleid` int(11) DEFAULT NULL COMMENT '角色编号',
+  `menuid` int(11) DEFAULT NULL COMMENT '菜单编号',
+  `createid` decimal(10,0) DEFAULT NULL COMMENT '创建人Id',
+  `createdatatime` datetime DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`id`)
+)ENGINE = INNODB DEFAULT CHARSET=utf8 COMMENT '角色菜单关联表';
+
+
+-- 公告通知
+DROP TABLE IF EXISTS `notice_info`;
+create TABLE `notice_info`(
+	`id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+	`title` VARCHAR(200) DEFAULT NULL COMMENT '标题',
+	`content` VARCHAR(1024) DEFAULT NULL COMMENT '内容',
+	`file_url` VARCHAR(200) DEFAULT NULL COMMENT '附件地址',
+	`user_name` VARCHAR(50) NOT NULL COMMENT '发布人',
+	`create_time` datetime DEFAULT NULL COMMENT '发布日期',
+	`type` int(1) DEFAULT NULL COMMENT '类型 0:辐射源 1：固废',
+	`notice_enterprise` VARCHAR(1024) DEFAULT NULL COMMENT '可以看到通知的企业：所有企业：ALL，选择企业：以，号分割',
+	`delflag` int(11) DEFAULT NULL COMMENT '是否删除 0正常使用 1删除',
+   PRIMARY KEY (`id`)
+)ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT '公告通知';
+
+-- 知识库
+DROP TABLE IF EXISTS `knowledge_base`;
+create TABLE `knowledge_base`(
+	`id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+	`title` VARCHAR(200) DEFAULT NULL COMMENT '标题',
+	`content` VARCHAR(1024) DEFAULT NULL COMMENT '内容',
+	`file_url` VARCHAR(200) DEFAULT NULL COMMENT '附件地址',
+	`user_name` VARCHAR(50) NOT NULL COMMENT '发布人',
+	`create_time` datetime DEFAULT NULL COMMENT '发布日期',
+	`classify` VARCHAR(50) DEFAULT NULL COMMENT '分类 数据字典关联-00001',
+  `delflag` int(11) DEFAULT NULL COMMENT '是否删除 0正常使用 1删除',
+  PRIMARY KEY (`id`)
+)ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT '知识库';
+
+-- 员工表
+DROP TABLE IF EXISTS `employee_info`;
+CREATE TABLE `employee_info` (
+  `emi_id` int(11) NOT NULL auto_increment COMMENT '表主键',
+  `emi_cardno` varchar(50) default NULL COMMENT '员工卡号',
+  `emi_name` varchar(50) default NULL COMMENT '员工姓名',
+  `emi_gender` varchar(50) default NULL COMMENT '员工性别',
+  `emi_department` varchar(50) default NULL COMMENT '员工部门',
+  `emi_job` varchar(50) default NULL COMMENT '员工职位',
+  `emi_delflag` varchar(50) default NULL COMMENT '删除标志位',
+  `emi_nation` varchar(50) default NULL COMMENT '民族',
+  `emi_documenttype` varchar(50) default NULL COMMENT '证件类型',
+  `emi_identificati` varchar(50) default NULL COMMENT '证件号码',
+  `emi_birthdata` datetime default NULL COMMENT '出生年月',
+  `emi_nativeplace` varchar(50) default NULL COMMENT '籍贯',
+  `emi_address` varchar(50) default NULL COMMENT '居住地址',
+  `emi_telephone` varchar(50) default NULL COMMENT '联系电话',
+  `emi_createid` decimal(10,0) default NULL COMMENT '创建人Id',
+  `emi_createdatatime` datetime default NULL COMMENT '创建时间',
+  `emi_updatedatatime` datetime default NULL COMMENT '修改时间',
+  `emi_password` varchar(50) default NULL COMMENT '员工密码',
+  `emi_number` varchar(50) default NULL COMMENT '员工编号',
+  `emi_ei_number` varchar(50) default NULL COMMENT '企业编号',
+  PRIMARY KEY  (`emi_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT '员工信息表';
+
+
+-- 管理制度
+DROP TABLE IF EXISTS `management_institution`;
+CREATE TABLE `management_institution`(
+	`id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+	`type` VARCHAR(50) DEFAULT NULL COMMENT '类别 数据字典配置',
+	`title` VARCHAR(200) DEFAULT NULL COMMENT '标题',
+	`content` VARCHAR(200) DEFAULT NULL COMMENT '内容',
+	`keyword` VARCHAR(200) DEFAULT NULL COMMENT '关键字',
+	`enterprise_number` VARCHAR(50) DEFAULT NULL COMMENT '上传企业',
+	`upload_time` datetime DEFAULT NULL COMMENT '上传日期',
+	`file_url` VARCHAR(200) DEFAULT NULL COMMENT '附件url',
+	PRIMARY KEY(`id`)
+)ENGINE=INNODB CHARSET=utf8;
+
+
+-- 预案备案管理
+DROP TABLE IF EXISTS `plan_management`;
+CREATE TABLE `plan_management`(
+	`id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+	`enterprise_number` VARCHAR(200) DEFAULT NULL COMMENT '单位编号',
+	`title` VARCHAR(200) DEFAULT NULL COMMENT '预案标题',
+	`kind` VARCHAR(200) DEFAULT NULL COMMENT '预案种类',
+	`type` VARCHAR(200) DEFAULT NULL COMMENT '预案类型',
+	`keyword` VARCHAR(200) COMMENT '关键字',
+	`level` VARCHAR(50) COMMENT '预案等级',
+	`plan_time` datetime COMMENT '备案日期',
+	`file_url` VARCHAR(200) COMMENT '文件地址',
+	`content` VARCHAR(200) COMMENT '内容',
+	`relate_thing` VARCHAR(200) COMMENT '相关危废品',
+	PRIMARY KEY(`id`)
+ )ENGINE=INNODB CHARSET=utf8;
+
+
+-- 应急演练
+DROP TABLE IF EXISTS `emergency_drill`;
+CREATE TABLE `emergency_drill`(
+	`id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+	`enterprise_number` VARCHAR(50) DEFAULT NULL COMMENT '演练单位',
+	`name` VARCHAR(50) DEFAULT NULL COMMENT '演练名称',
+	`content` VARCHAR(200) DEFAULT NULL COMMENT '演练内容',
+	`type` VARCHAR(20) DEFAULT NULL COMMENT '演练类型 0:实战演练 1：示范演练 2：综合演练 3：专项演练',
+	`drill_time` datetime DEFAULT null COMMENT '演练日期',
+	`background` VARCHAR(200) DEFAULT NULL COMMENT '演练背景',
+	`keyword` VARCHAR(200) DEFAULT NULL COMMENT '关键字',
+	PRIMARY KEY(`id`)
+)ENGINE=INNODB CHARSET=utf8;
+
+--
+
+
+ 

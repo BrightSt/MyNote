@@ -1,4 +1,4 @@
-++++++++1¡¢httpclient
+++++++++1ã€httpclient
 			package com.httpclient.test;
 
 			import java.io.IOException;
@@ -10,15 +10,15 @@
 			import org.apache.http.client.methods.HttpGet;
 			import org.apache.http.impl.client.CloseableHttpClient;
 			import org.apache.http.impl.client.HttpClients;
-			import org.apache.http.util.EntityUtils;  
+			import org.apache.http.util.EntityUtils;
 
 			public class Test {
 
 				public static void main(String[] args) {
-					CloseableHttpClient httpclient = HttpClients.createDefault();  
+					CloseableHttpClient httpclient = HttpClients.createDefault();
 					long timestamp = System.currentTimeMillis();
-					try {  
-						// ´´½¨httpget.    http://10.32.111.51:8080/2014/index.html
+					try {
+						// åˆ›å»ºhttpget.    http://10.32.111.51:8080/2014/index.html
 						StringBuffer ab = new StringBuffer();
 						//ab.append("http://127.0.0.1:8080/QRcode.do?method=qrLogin");
 						ab.append("http://10.32.111.51:8080/2014/QRcode.do?method=qrLogin");
@@ -26,45 +26,45 @@
 						ab.append("&token=122ABFEC33564280A26D1B5B1FB4E795@js.ac.10086.cn");
 						ab.append("&type=1");
 						ab.append("&operateTime="+timestamp);
-						HttpGet httpget = new HttpGet(ab+"");  
-			//            HttpGet httpget = new HttpGet("http://10.32.111.51:8080/2014/QRcode.do?method=getToken&token=1111111");  
-						System.out.println("executing request " + httpget.getURI());  
-						// Ö´ĞĞgetÇëÇó.    
-						CloseableHttpResponse response = httpclient.execute(httpget);  
-						try {  
-							// »ñÈ¡ÏìÓ¦ÊµÌå    
-							HttpEntity entity = response.getEntity();  
-							System.out.println("--------------------------------------");  
-							// ´òÓ¡ÏìÓ¦×´Ì¬    
-							System.out.println(response.getStatusLine());  
-							if (entity != null) {  
-								// ´òÓ¡ÏìÓ¦ÄÚÈİ³¤¶È    
-								System.out.println("Response content length: " + entity.getContentLength());  
-								// ´òÓ¡ÏìÓ¦ÄÚÈİ    
-								System.out.println("Response content: " + EntityUtils.toString(entity));  
-							}  
-							System.out.println("------------------------------------");  
-						} finally {  
-							response.close();  
-						}  
-					} catch (ClientProtocolException e) {  
-						e.printStackTrace();  
-					} catch (ParseException e) {  
-						e.printStackTrace();  
-					} catch (IOException e) {  
-						e.printStackTrace();  
-					} finally {  
-						// ¹Ø±ÕÁ¬½Ó,ÊÍ·Å×ÊÔ´    
-						try {  
-							httpclient.close();  
-						} catch (IOException e) {  
-							e.printStackTrace();  
-						}  
-					}  
+						HttpGet httpget = new HttpGet(ab+"");
+			//            HttpGet httpget = new HttpGet("http://10.32.111.51:8080/2014/QRcode.do?method=getToken&token=1111111");
+						System.out.println("executing request " + httpget.getURI());
+						// æ‰§è¡Œgetè¯·æ±‚.
+						CloseableHttpResponse response = httpclient.execute(httpget);
+						try {
+							// è·å–å“åº”å®ä½“
+							HttpEntity entity = response.getEntity();
+							System.out.println("--------------------------------------");
+							// æ‰“å°å“åº”çŠ¶æ€
+							System.out.println(response.getStatusLine());
+							if (entity != null) {
+								// æ‰“å°å“åº”å†…å®¹é•¿åº¦
+								System.out.println("Response content length: " + entity.getContentLength());
+								// æ‰“å°å“åº”å†…å®¹
+								System.out.println("Response content: " + EntityUtils.toString(entity));
+							}
+							System.out.println("------------------------------------");
+						} finally {
+							response.close();
+						}
+					} catch (ClientProtocolException e) {
+						e.printStackTrace();
+					} catch (ParseException e) {
+						e.printStackTrace();
+					} catch (IOException e) {
+						e.printStackTrace();
+					} finally {
+						// å…³é—­è¿æ¥,é‡Šæ”¾èµ„æº
+						try {
+							httpclient.close();
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
 				}
 
 			}
-++++++++2. µ¥ÀıÄ£ĞÍ
+++++++++2. å•ä¾‹æ¨¡å‹
 			public static DESUtil instance = new DESUtil();
 			public static DESUtil getInstace()
 			{
@@ -75,23 +75,23 @@
 				instance = new DESUtil(key);
 				return instance;
 			}
-			
-			
-			
-++++++++3.java¾«¶ÈÎÊÌâ
+
+
+
+++++++++3.javaç²¾åº¦é—®é¢˜
 					public static void main(String args[]){
 						   Float xx = 2.0f;
 						   Float yy = 1.8f;
 						   Float tt = xx - yy;
 						   System.out.println("tttttt-----" + tt);
-						   
+
 						   double aa = 2.0;
 						   double bb = 3.03;
 						   double cc = bb-aa;
 						   if(bb-aa == 1.03){
-							   
+
 						   }
 						   System.out.println(cc);
-						   
+
 						   //tttttt-----0.20000005   1.0299999999999998
 					}
